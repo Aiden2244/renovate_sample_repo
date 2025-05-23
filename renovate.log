@@ -1,0 +1,561 @@
+Fri May 23 17:54:24 EDT 2025
+Deploying
+DEBUG: Using RE2 regex engine
+DEBUG: Parsing configs
+DEBUG: No config file found on disk - skipping
+DEBUG: File config
+       "config": {}
+DEBUG: CLI config
+       "config": {"repositories": ["Aiden2244/renovate_sample_repo"]}
+DEBUG: Env config
+       "config": {"hostRules": [], "token": "***********"}
+DEBUG: Resolved global extends
+       "config": undefined
+DEBUG: Combined config
+       "config": {
+         "hostRules": [],
+         "token": "***********",
+         "repositories": ["Aiden2244/renovate_sample_repo"]
+       }
+DEBUG: Enabling forkProcessing while in non-autodiscover mode
+DEBUG: Enabling onboardingNoDeps while in non-autodiscover mode
+DEBUG: Found valid git version: 2.49.0
+DEBUG: Setting global hostRules
+DEBUG: Using default github endpoint: https://api.github.com/
+DEBUG: hostRules: authentication already set for api.github.com
+DEBUG: Using queue: host=api.github.com, concurrency=16
+DEBUG: Platform config
+       "platformConfig": {
+         "hostType": "github",
+         "endpoint": "https://api.github.com/",
+         "isGHApp": false,
+         "isGhe": false,
+         "userDetails": {
+           "username": "Aiden2244",
+           "name": "Aiden McCormack",
+           "id": 89662634
+         },
+         "userEmail": "89662634+Aiden2244@users.noreply.github.com"
+       },
+       "renovateUsername": "Aiden2244"
+DEBUG: Using platform gitAuthor: Aiden McCormack <89662634+Aiden2244@users.noreply.github.com>
+DEBUG: Adding token authentication for api.github.com (hostType=github) to hostRules
+DEBUG: Using baseDir: /tmp/renovate
+DEBUG: Using cacheDir: /tmp/renovate/cache
+DEBUG: Using containerbaseDir: /tmp/renovate/cache/containerbase
+DEBUG: Initializing Renovate internal cache into /tmp/renovate/cache/renovate/renovate-cache-v1
+DEBUG: Commits limit = null
+DEBUG: Setting global hostRules
+DEBUG: Adding token authentication for api.github.com (hostType=github) to hostRules
+DEBUG: validatePresets()
+DEBUG: Reinitializing hostRules for repo
+DEBUG: Clearing hostRules
+DEBUG: Adding token authentication for api.github.com (hostType=github) to hostRules
+ INFO: Repository started (repository=Aiden2244/renovate_sample_repo)
+       "renovateVersion": "40.26.1"
+DEBUG: Using localDir: /tmp/renovate/repos/github/Aiden2244/renovate_sample_repo (repository=Aiden2244/renovate_sample_repo)
+DEBUG: PackageFiles.clear() - Package files deleted (repository=Aiden2244/renovate_sample_repo)
+DEBUG: initRepo("Aiden2244/renovate_sample_repo") (repository=Aiden2244/renovate_sample_repo)
+DEBUG: hostRules: authentication already set for api.github.com (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Using queue: host=api.github.com, concurrency=16 (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Aiden2244/renovate_sample_repo default branch = main (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Using personal access token for git init (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Resetting npmrc (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Resetting npmrc (repository=Aiden2244/renovate_sample_repo)
+DEBUG: checkOnboarding() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: isOnboarded() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: findPr(renovate/configure, Configure Renovate, !open) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: http cache: saving https://api.github.com/repos/Aiden2244/renovate_sample_repo/pulls?per_page=100&state=all&sort=updated&direction=desc&page=1 (etag="dcd20bec22a0924f39e45c2248009fb48f30d1b25c76b2f65aa857d2ee564f63", lastModified=undefined) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: getPrList success (repository=Aiden2244/renovate_sample_repo)
+       "pullsTotal": 0,
+       "requestsTotal": 1,
+       "apiQuotaAffected": true
+DEBUG: findPr(renovate/configure, chore: Configure Renovate, !open) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: findFile(renovate.json) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Initializing git repository into /tmp/renovate/repos/github/Aiden2244/renovate_sample_repo (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Performing blobless clone (repository=Aiden2244/renovate_sample_repo)
+DEBUG: git clone completed (repository=Aiden2244/renovate_sample_repo)
+       "durationMs": 354
+DEBUG: latest repository commit (repository=Aiden2244/renovate_sample_repo)
+       "latestCommit": {
+         "hash": "6ddefdb84b90fc21c6c95b70adf5c89d1fa67a2b",
+         "date": "2025-05-23T17:54:10-04:00",
+         "message": "Update renovate config",
+         "refs": "HEAD -> main, origin/main, origin/HEAD",
+         "body": "",
+         "author_name": "Aiden McCormack",
+         "author_email": "github.quicken590@passmail.net"
+       }
+DEBUG: Config file exists, fileName: renovate.json (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Retrieving issueList (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Retrieved 0 issues (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Repo is onboarded (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Found renovate.json config file (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Repository config (repository=Aiden2244/renovate_sample_repo)
+       "fileName": "renovate.json",
+       "config": {
+         "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+         "extends": ["config:recommended"],
+         "enabledManagers": ["pip_requirements", "poetry"],
+         "includePaths": ["drake_pip/**", "drake_poetry/**"],
+         "pip_requirements": {
+           "managerFilePatterns": ["/drake_pip/requirements\\.txt$/"]
+         },
+         "poetry": {"managerFilePatterns": ["/drake_poetry/pyproject\\.toml$/"]},
+         "packageRules": [
+           {
+             "matchManagers": ["pip_requirements"],
+             "matchFileNames": ["drake_pip/requirements.txt"],
+             "semanticCommitType": "chore",
+             "semanticCommitScope": "pip-deps",
+             "rangeStrategy": "bump"
+           },
+           {
+             "matchManagers": ["poetry"],
+             "matchFileNames": ["drake_poetry/pyproject.toml"],
+             "semanticCommitType": "chore",
+             "semanticCommitScope": "poetry-deps",
+             "rangeStrategy": "bump"
+           }
+         ]
+       }
+DEBUG: migrateAndValidate() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: No config migration necessary (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Found repo ignorePaths (repository=Aiden2244/renovate_sample_repo)
+       "ignorePaths": [
+         "**/node_modules/**",
+         "**/bower_components/**",
+         "**/vendor/**",
+         "**/examples/**",
+         "**/__tests__/**",
+         "**/test/**",
+         "**/tests/**",
+         "**/__fixtures__/**"
+       ]
+DEBUG: No vulnerability alerts enabled for repo (repository=Aiden2244/renovate_sample_repo)
+DEBUG: No vulnerability alerts found (repository=Aiden2244/renovate_sample_repo)
+DEBUG: findIssue(Dependency Dashboard) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: No baseBranches (repository=Aiden2244/renovate_sample_repo)
+DEBUG: extract() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Setting current branch to main (repository=Aiden2244/renovate_sample_repo)
+DEBUG: latest commit (repository=Aiden2244/renovate_sample_repo)
+       "branchName": "main",
+       "latestCommitDate": "2025-05-23T17:54:10-04:00"
+DEBUG: Using file pattern: /(^|/)[\w-]*requirements([-.]\w+)?\.(txt|pip)$/ for manager pip_requirements (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Using file pattern: /drake_pip/requirements\.txt$/ for manager pip_requirements (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Using file pattern: /(^|/)pyproject\.toml$/ for manager poetry (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Using file pattern: /drake_poetry/pyproject\.toml$/ for manager poetry (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Matched 2 file(s) for manager pip_requirements: drake_pip/requirements.txt, drake_poetry/drake_pip/requirements.txt (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Matched 1 file(s) for manager poetry: drake_poetry/pyproject.toml (repository=Aiden2244/renovate_sample_repo)
+DEBUG: manager extract durations (ms) (repository=Aiden2244/renovate_sample_repo)
+       "managers": {"poetry": 5, "pip_requirements": 6}
+DEBUG: Found pip_requirements package files (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Found poetry package files (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Found 3 package file(s) (repository=Aiden2244/renovate_sample_repo)
+ INFO: Dependency extraction complete (repository=Aiden2244/renovate_sample_repo, baseBranch=main)
+       "stats": {
+         "managers": {
+           "pip_requirements": {"fileCount": 2, "depCount": 2},
+           "poetry": {"fileCount": 1, "depCount": 1}
+         },
+         "total": {"fileCount": 3, "depCount": 3}
+       }
+DEBUG: hostRules: no authentication for pypi.org (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Using queue: host=pypi.org, concurrency=16 (repository=Aiden2244/renovate_sample_repo)
+DEBUG: PackageFiles.add() - Package file saved for base branch (repository=Aiden2244/renovate_sample_repo, baseBranch=main)
+DEBUG: Package releases lookups complete (repository=Aiden2244/renovate_sample_repo, baseBranch=main)
+DEBUG: Repository libYears (repository=Aiden2244/renovate_sample_repo)
+       "libYears": {
+         "managers": {
+           "pip_requirements": 0.0930216894977169,
+           "poetry": 0.0930216894977169
+         },
+         "total": 0.0930216894977169
+       },
+       "dependencyStatus": {"outdated": 1, "total": 2}
+DEBUG: branchifyUpgrades (repository=Aiden2244/renovate_sample_repo)
+DEBUG: detectSemanticCommits() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: getCommitMessages (repository=Aiden2244/renovate_sample_repo)
+DEBUG: semanticCommits: detected "unknown" (repository=Aiden2244/renovate_sample_repo)
+DEBUG: semanticCommits: disabled (repository=Aiden2244/renovate_sample_repo)
+DEBUG: 2 flattened updates found: drake, drake (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Returning 1 branch(es) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: config.repoIsOnboarded=true (repository=Aiden2244/renovate_sample_repo)
+DEBUG: packageFiles with updates (repository=Aiden2244/renovate_sample_repo, baseBranch=main)
+       "config": {
+         "pip_requirements": [
+           {
+             "deps": [
+               {
+                 "depName": "drake",
+                 "packageName": "drake",
+                 "currentValue": "~=1.40",
+                 "datasource": "pypi",
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.41.0",
+                     "newValue": "~=1.41",
+                     "releaseTimestamp": "2025-05-16T17:25:52.000Z",
+                     "newVersionAgeInDays": 7,
+                     "newMajor": 1,
+                     "newMinor": 41,
+                     "newPatch": 0,
+                     "updateType": "minor",
+                     "isBreaking": false,
+                     "isRange": true,
+                     "isBump": true,
+                     "libYears": 0.0930216894977169,
+                     "branchName": "renovate/drake-1.x"
+                   }
+                 ],
+                 "versioning": "pep440",
+                 "warnings": [],
+                 "registryUrl": "https://pypi.org/pypi",
+                 "homepage": "https://drake.mit.edu",
+                 "mostRecentTimestamp": "2025-05-16T17:25:52.000Z",
+                 "currentVersion": "1.40.0",
+                 "currentVersionTimestamp": "2025-04-12T18:33:40.000Z",
+                 "currentVersionAgeInDays": 41,
+                 "isSingleVersion": false
+               }
+             ],
+             "packageFile": "drake_pip/requirements.txt"
+           },
+           {
+             "deps": [
+               {
+                 "depName": "drake",
+                 "packageName": "drake",
+                 "currentValue": "~=1.40",
+                 "datasource": "pypi",
+                 "updates": [],
+                 "versioning": "pep440",
+                 "warnings": [],
+                 "registryUrl": "https://pypi.org/pypi",
+                 "homepage": "https://drake.mit.edu",
+                 "mostRecentTimestamp": "2025-05-16T17:25:52.000Z",
+                 "currentVersion": "1.41.0",
+                 "currentVersionTimestamp": "2025-05-16T17:25:52.000Z",
+                 "currentVersionAgeInDays": 7
+               }
+             ],
+             "packageFile": "drake_poetry/drake_pip/requirements.txt"
+           }
+         ],
+         "poetry": [
+           {
+             "deps": [
+               {
+                 "datasource": "pypi",
+                 "currentValue": "~=1.40",
+                 "managerData": {"nestedVersion": false},
+                 "versioning": "pep440",
+                 "depName": "drake",
+                 "depType": "dependencies",
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.41.0",
+                     "newValue": "~=1.41",
+                     "releaseTimestamp": "2025-05-16T17:25:52.000Z",
+                     "newVersionAgeInDays": 7,
+                     "newMajor": 1,
+                     "newMinor": 41,
+                     "newPatch": 0,
+                     "updateType": "minor",
+                     "isBreaking": false,
+                     "isRange": true,
+                     "isBump": true,
+                     "libYears": 0.0930216894977169,
+                     "branchName": "renovate/drake-1.x"
+                   }
+                 ],
+                 "packageName": "drake",
+                 "warnings": [],
+                 "registryUrl": "https://pypi.org/pypi",
+                 "homepage": "https://drake.mit.edu",
+                 "mostRecentTimestamp": "2025-05-16T17:25:52.000Z",
+                 "currentVersion": "1.40.0",
+                 "currentVersionTimestamp": "2025-04-12T18:33:40.000Z",
+                 "currentVersionAgeInDays": 41,
+                 "isSingleVersion": false
+               }
+             ],
+             "extractedConstraints": {},
+             "packageFile": "drake_poetry/pyproject.toml"
+           }
+         ]
+       }
+DEBUG: detectSemanticCommits() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: semanticCommits: returning "disabled" from cache (repository=Aiden2244/renovate_sample_repo)
+DEBUG: processRepo() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Processing 1 branch: renovate/drake-1.x (repository=Aiden2244/renovate_sample_repo)
+DEBUG: getBranchPr(renovate/drake-1.x) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: findPr(renovate/drake-1.x, undefined, open) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: 0 PRs are currently open (repository=Aiden2244/renovate_sample_repo)
+DEBUG: ConcurrentPRs count = 0 (repository=Aiden2244/renovate_sample_repo)
+DEBUG: 0 already existing branches found. (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Branches count = 0 (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Calculating PRs created so far in this hour currentHourStart=2025-05-23T21:00:00.000Z (repository=Aiden2244/renovate_sample_repo)
+DEBUG: 0 PRs have been created so far in this hour. (repository=Aiden2244/renovate_sample_repo)
+DEBUG: HourlyPRs count = 0 (repository=Aiden2244/renovate_sample_repo)
+DEBUG: syncBranchState() (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: syncBranchState(): Branch cache not found, creating minimal branchState (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: getBranchPr(renovate/drake-1.x) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: findPr(renovate/drake-1.x, undefined, open) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: branchExists=false (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: dependencyDashboardCheck=undefined (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Check for closed PR because recreating closed PRs is disabled. (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: findPr(renovate/drake-1.x, Update dependency drake to ~=1.41, !open) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: prAlreadyExisted=false (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Open PR Count: 0, Existing Branch Count: 0, Hourly PR Count: 0 (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: prHourlyLimit of the upgrades present in this branch (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "limits": [
+         {"depName": "drake", "prHourlyLimit": 2},
+         {"depName": "drake", "prHourlyLimit": 2}
+       ]
+DEBUG: Calculated lowest prHourlyLimit among the upgrades present in this branch is 2. (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: branchConcurrentLimit of the upgrades present in this branch (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "limits": [
+         {"depName": "drake", "branchConcurrentLimit": null},
+         {"depName": "drake", "branchConcurrentLimit": null}
+       ]
+DEBUG: Calculated lowest branchConcurrentLimit among the upgrades present in this branch is 10. (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Checking schedule(schedule=at any time, tz=null, now=2025-05-23T21:54:26.251Z) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: No schedule defined (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: GET https://api.github.com/repos/Aiden2244/renovate_sample_repo/branches/main/protection = (code=ERR_NON_2XX_3XX_RESPONSE, statusCode=404 retryCount=0, duration=69) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: No branch protection found for main (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Converting rebaseWhen=auto to rebaseWhen=conflicted because no rule for behind-base-branch applies (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Branch needs creating (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Using reuseExistingBranch: false (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Setting current branch to main (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: latest commit (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "branchName": "main",
+       "latestCommitDate": "2025-05-23T17:54:10-04:00"
+DEBUG: manager.getUpdatedPackageFiles() reuseExistingBranch=false (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Starting search at index 388 (repository=Aiden2244/renovate_sample_repo, packageFile=drake_poetry/pyproject.toml, branch=renovate/drake-1.x)
+       "depName": "drake"
+DEBUG: Found match at index 388 (repository=Aiden2244/renovate_sample_repo, packageFile=drake_poetry/pyproject.toml, branch=renovate/drake-1.x)
+       "depName": "drake"
+DEBUG: Contents updated (repository=Aiden2244/renovate_sample_repo, packageFile=drake_poetry/pyproject.toml, branch=renovate/drake-1.x)
+       "depName": "drake"
+DEBUG: Value is not updated (repository=Aiden2244/renovate_sample_repo, packageFile=drake_pip/requirements.txt, branch=renovate/drake-1.x)
+       "depName": "drake",
+       "manager": "pip_requirements",
+       "expectedValue": "~=1.41",
+       "foundValue": "~=1.40"
+DEBUG: Starting search at index 353 (repository=Aiden2244/renovate_sample_repo, packageFile=drake_pip/requirements.txt, branch=renovate/drake-1.x)
+       "depName": "drake"
+DEBUG: Found match at index 353 (repository=Aiden2244/renovate_sample_repo, packageFile=drake_pip/requirements.txt, branch=renovate/drake-1.x)
+       "depName": "drake"
+DEBUG: Contents updated (repository=Aiden2244/renovate_sample_repo, packageFile=drake_pip/requirements.txt, branch=renovate/drake-1.x)
+       "depName": "drake"
+DEBUG: updateArtifacts for updatedPackageFiles (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: poetry.updateArtifacts(drake_poetry/pyproject.toml) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: No lock file found (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: pip_requirements.updateArtifacts(drake_pip/requirements.txt) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: No hashin commands to run - returning (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Updated 2 package files (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: No updated lock files in branch (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: 2 file(s) to commit (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Preparing files for committing to branch renovate/drake-1.x (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Setting git author name: Aiden McCormack (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Setting git author email: 89662634+Aiden2244@users.noreply.github.com (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: git commit (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "deletedFiles": [],
+       "ignoredFiles": [],
+       "result": {
+         "author": null,
+         "branch": "renovate/drake-1.x",
+         "commit": "14c1d61d74b89b43cfbcd635cda86865c0863560",
+         "root": false,
+         "summary": {"changes": 2, "insertions": 2, "deletions": 2}
+       }
+DEBUG: Pushing refSpec renovate/drake-1.x:renovate/drake-1.x (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: git push (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "result": {
+         "pushed": [
+           {
+             "deleted": false,
+             "tag": false,
+             "branch": true,
+             "new": true,
+             "alreadyUpdated": false,
+             "local": "refs/heads/renovate/drake-1.x",
+             "remote": "refs/heads/renovate/drake-1.x"
+           }
+         ],
+         "ref": {"local": "refs/remotes/origin/renovate/drake-1.x"},
+         "remoteMessages": {
+           "all": [
+             "Create a pull request for 'renovate/drake-1.x' on GitHub by visiting:",
+             "https://github.com/Aiden2244/renovate_sample_repo/pull/new/renovate/drake-1.x"
+           ],
+           "pullRequestUrl": "https://github.com/Aiden2244/renovate_sample_repo/pull/new/renovate/drake-1.x"
+         }
+       }
+DEBUG: Setting current branch to main (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: latest commit (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "branchName": "main",
+       "latestCommitDate": "2025-05-23T17:54:10-04:00"
+ INFO: Branch created (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "commitSha": "14c1d61d74b89b43cfbcd635cda86865c0863560"
+DEBUG: Ensuring PR (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: There are 0 errors and 0 warnings (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: getBranchPr(renovate/drake-1.x) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: findPr(renovate/drake-1.x, undefined, open) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: findPr(renovate/drake-1.x, undefined, closed) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Creating PR (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "prTitle": "Update dependency drake to ~=1.41"
+DEBUG: prHourlyLimit of the upgrades present in this branch (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "limits": [
+         {"depName": "drake", "prHourlyLimit": 2},
+         {"depName": "drake", "prHourlyLimit": 2}
+       ]
+DEBUG: Calculated lowest prHourlyLimit among the upgrades present in this branch is 2. (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: prConcurrentLimit of the upgrades present in this branch (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "limits": [
+         {"depName": "drake", "prConcurrentLimit": 10},
+         {"depName": "drake", "prConcurrentLimit": 10}
+       ]
+DEBUG: Calculated lowest prConcurrentLimit among the upgrades present in this branch is 10. (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Creating PR (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "title": "Update dependency drake to ~=1.41",
+       "head": "Aiden2244:renovate/drake-1.x",
+       "base": "main",
+       "draft": false
+DEBUG: PR created (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "pr": 1,
+       "draft": false
+DEBUG: Adding labels '' to #1 (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+ INFO: PR created (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+       "pr": 1,
+       "prTitle": "Update dependency drake to ~=1.41"
+DEBUG: addParticipants(pr=1) (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: setPrCache() (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: Created Pull Request #1 (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: PR is not configured for automerge (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: setBranchCommit() (repository=Aiden2244/renovate_sample_repo, branch=renovate/drake-1.x)
+DEBUG: getBranchPr(renovate/drake-1.x) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: findPr(renovate/drake-1.x, undefined, open) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Found PR #1 (repository=Aiden2244/renovate_sample_repo)
+DEBUG: http cache: saving https://api.github.com/repos/Aiden2244/renovate_sample_repo/contents/renovate.json (etag=W/"79403546437d29371eb102338eab24c4f8d28f92", lastModified=Fri, 23 May 2025 21:54:10 GMT) (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Config does not need migration (repository=Aiden2244/renovate_sample_repo)
+DEBUG: ensureDependencyDashboard() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Ensuring Dependency Dashboard (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Checking packageFiles for deprecated packages (repository=Aiden2244/renovate_sample_repo)
+DEBUG: ensureIssue(Dependency Dashboard) (repository=Aiden2244/renovate_sample_repo)
+ INFO: Issue created (repository=Aiden2244/renovate_sample_repo)
+DEBUG: checkReconfigureBranch() (repository=Aiden2244/renovate_sample_repo)
+DEBUG: No reconfigure branch found (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Removing any stale branches (repository=Aiden2244/renovate_sample_repo)
+DEBUG: config.repoIsOnboarded=true (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Branch lists (repository=Aiden2244/renovate_sample_repo)
+       "branchList": ["renovate/drake-1.x"],
+       "renovateBranches": ["renovate/drake-1.x"]
+DEBUG: remainingBranches= (repository=Aiden2244/renovate_sample_repo)
+DEBUG: No branches to clean up (repository=Aiden2244/renovate_sample_repo)
+DEBUG: PackageFiles.clear() - Package files deleted (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Branch summary (repository=Aiden2244/renovate_sample_repo)
+       "cacheModified": undefined,
+       "baseBranches": [{"branchName": "main", "sha": "6ddefdb84b90fc21c6c95b70adf5c89d1fa67a2b"}],
+       "branches": [
+         {
+           "automerge": false,
+           "baseBranch": "main",
+           "baseBranchSha": "6ddefdb84b90fc21c6c95b70adf5c89d1fa67a2b",
+           "branchName": "renovate/drake-1.x",
+           "branchSha": "14c1d61d74b89b43cfbcd635cda86865c0863560",
+           "isModified": false,
+           "isPristine": true
+         }
+       ],
+       "defaultBranch": "main",
+       "inactiveBranches": []
+DEBUG: branches info extended (repository=Aiden2244/renovate_sample_repo)
+       "branchesInformation": [
+         {
+           "branchName": "renovate/drake-1.x",
+           "prNo": 1,
+           "prTitle": "Update dependency drake to ~=1.41",
+           "result": "pr-created",
+           "upgrades": [
+             {
+               "datasource": "pypi",
+               "depName": "drake",
+               "displayPending": "",
+               "currentVersion": "1.40.0",
+               "currentValue": "~=1.40",
+               "newValue": "~=1.41",
+               "newVersion": "1.41.0",
+               "packageFile": "drake_poetry/pyproject.toml",
+               "updateType": "minor",
+               "packageName": "drake"
+             },
+             {
+               "datasource": "pypi",
+               "depName": "drake",
+               "displayPending": "",
+               "currentVersion": "1.40.0",
+               "currentValue": "~=1.40",
+               "newValue": "~=1.41",
+               "newVersion": "1.41.0",
+               "packageFile": "drake_pip/requirements.txt",
+               "updateType": "minor",
+               "packageName": "drake"
+             }
+           ]
+         }
+       ]
+DEBUG: Renovate repository PR statistics (repository=Aiden2244/renovate_sample_repo)
+       "stats": {"total": 1, "open": 1, "closed": 0, "merged": 0}
+DEBUG: Repository result: done, status: onboarded, enabled: true, onboarded: true (repository=Aiden2244/renovate_sample_repo)
+DEBUG: Repository timing splits (milliseconds) (repository=Aiden2244/renovate_sample_repo)
+       "splits": {"init": 1135, "extract": 19, "lookup": 105, "onboarding": 0, "update": 1750},
+       "total": 3392
+DEBUG: Package cache statistics (repository=Aiden2244/renovate_sample_repo)
+       "get": {"count": 1, "avgMs": 2, "medianMs": 2, "maxMs": 2, "totalMs": 2},
+       "set": {"count": 1, "avgMs": 5, "medianMs": 5, "maxMs": 5, "totalMs": 5}
+DEBUG: Datasource cache statistics (repository=Aiden2244/renovate_sample_repo)
+       "pypi": {"https://pypi.org/pypi": {"hit": 0, "miss": 1, "set": 1, "skip": 0}}
+DEBUG: HTTP statistics (repository=Aiden2244/renovate_sample_repo)
+       "hosts": {
+         "api.github.com": {
+           "count": 7,
+           "reqAvgMs": 205,
+           "reqMedianMs": 123,
+           "reqMaxMs": 710,
+           "queueAvgMs": 0,
+           "queueMedianMs": 0,
+           "queueMaxMs": 1
+         },
+         "pypi.org": {
+           "count": 1,
+           "reqAvgMs": 30,
+           "reqMedianMs": 30,
+           "reqMaxMs": 30,
+           "queueAvgMs": 0,
+           "queueMedianMs": 0,
+           "queueMaxMs": 0
+         }
+       },
+       "requests": 8
+DEBUG: HTTP cache statistics (repository=Aiden2244/renovate_sample_repo)
+       "https://api.github.com": {
+         "/repos/Aiden2244/renovate_sample_repo/contents/renovate.json": {
+           "hit": 0,
+           "miss": 1
+         },
+         "/repos/Aiden2244/renovate_sample_repo/pulls": {"hit": 0, "miss": 1}
+       }
+DEBUG: Lookup statistics (repository=Aiden2244/renovate_sample_repo)
+       "pypi": {"count": 3, "avgMs": 63, "medianMs": 65, "maxMs": 66, "totalMs": 190}
+DEBUG: Cache fallback URLs (repository=Aiden2244/renovate_sample_repo)
+       "count": 0,
+       "hits": {}
+ INFO: Repository finished (repository=Aiden2244/renovate_sample_repo)
+       "cloned": true,
+       "durationMs": 3392
+DEBUG: Checking file package cache for expired items
+DEBUG: Deleted 0 of 1 file cached entries in 6ms
