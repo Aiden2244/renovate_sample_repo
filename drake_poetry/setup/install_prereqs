@@ -1,0 +1,67 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT-0
+
+set -euxo pipefail
+
+wheel_url=
+python_version='3'
+
+while [ "${1:-}" != "" ]; do
+  case "$1" in
+    --wheel-url)
+      shift
+      if [[ $# -eq 0 ]]; then
+        echo 'No argument specified for --wheel-url' >&2
+        exit 1
+      fi
+      wheel_url="$1"
+      ;;
+    --python-version)
+      shift
+      if [[ $# -eq 0 ]]; then
+        echo 'No argument specified for --python-version' >&2
+        exit 1
+      fi
+      python_version="$1"
+      ;;
+    *)
+      echo 'Invalid command line argument' >&2
+      exit 1
+  esac
+  shift
+done
+
+maybe_sudo=
+if [[ "${EUID}" -ne 0 ]]; then
+  maybe_sudo=sudo
+fi
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+    # Ubuntu-specific installations
+    # See https://github.com/RobotLocomotion/drake/blob/master/tools/wheel/content/INSTALLATION
+    # for a complete list of the required libraries to be installed.
+    ${maybe_sudo} apt-get update
+    ${maybe_sudo} apt-get install --no-install-recommends $(cat <<EOF
+      libegl1
+      libglib2.0-0
+      libsm6
+      libx11-6
+EOF
+    )
+fi
+
+# If a version of Python other than the default (3) is provided,
+# enforce that poetry use that version.
+echo "Creating poetry environment with python${python_version}"
+if [[ "$python_version" != "3" ]]; then
+  poetry env use $python_version
+fi
+
+# Use custom wheels if specified, on the respective OS.
+# Note that this will modify the pyproject.toml and the poetry.lock files.
+if [[ ! -z "${wheel_url}" ]]; then
+  poetry add "${wheel_url}"
+fi
+
+# Install poetry dependencies.
+poetry install
