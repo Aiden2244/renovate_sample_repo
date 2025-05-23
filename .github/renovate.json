@@ -3,18 +3,6 @@
   "extends": ["config:recommended"],
   "enabledManagers": ["pip_requirements", "poetry"],
   "includePaths": ["drake_pip/**", "drake_poetry/**"],
-  "hostRules": [
-    {
-      "hostType": "github",
-      "matchHost": "api.github.com",
-      "token": "${RENOVATE_TOKEN}"
-    },
-    {
-      "hostType": "github-releases",
-      "matchHost": "api.github.com",
-      "token": "${RENOVATE_TOKEN}"
-    }
-  ],
   "pip_requirements": {
     "managerFilePatterns": ["/drake_pip/requirements\\.txt$/"]
   },
