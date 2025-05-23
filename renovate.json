@@ -7,8 +7,12 @@
     {
       "hostType": "github",
       "matchHost": "api.github.com",
-      "authType": "Token-Only",
-      "token": "$RENOVATE_TOKEN"
+      "token": "${RENOVATE_TOKEN}"
+    },
+    {
+      "hostType": "github-releases",
+      "matchHost": "api.github.com",
+      "token": "${RENOVATE_TOKEN}"
     }
   ],
   "pip_requirements": {
